@@ -1,13 +1,11 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:7-alpine'
-        }
+  agent { docker 'ruby:2.1' }
+  stages {
+    stage('build') {
+      steps {
+        sh 'ruby --version'
+        sh 'bundle install'
+      }
     }
-    stage 'Prepare Container'
-    stage 'Install Gems'
-    stage 'Prepare Database'
-    stage 'Invoke Rake'
-    stage 'Security scan'
-    stage 'Deploy'
+  }
 }
