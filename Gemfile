@@ -1,6 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
+# jenkins pipeline
+group :test do
+  # RSpec, etc
+  gem 'ci_reporter'
+  gem 'ci_reporter_rspec'
+  gem "brakeman", :require => false
+end
+
 gem 'rails', '4.2.5'
 gem 'puma', '~> 2.13'
 
